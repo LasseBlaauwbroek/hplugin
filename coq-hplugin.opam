@@ -1,0 +1,30 @@
+opam-version: "2.0"
+name: "coq-hplugin"
+version: "dev"
+synopsis: "Synopsis"
+description: """
+"""
+homepage: "https://coq-tactician.github.io"
+dev-repo: "git+https://github.com/coq-tactician/coq-tactician-plugin-examples"
+bug-reports: "https://github.com/coq-tactician/coq-tactician-plugin-examples/issues"
+maintainer: "Lasse Blaauwbroek <lasse@blaauwbroek.eu>"
+authors: "Lasse Blaauwbroek <lasse@blaauwbroek.eu"
+depends: [
+  "ocaml"
+  "dune" {>= "2.5"}
+  "coq"
+  "coq-tactician" {= "8.12.dev"}
+  "coq-tactician-stdlib"
+  "coq-hammer-tactics" {= "1.3+8.12"}
+]
+build: [
+  ["dune" "build" "--release" "-j" jobs]
+]
+tags: [
+  "keyword:tactic-learning"
+  "keyword:machine-learning"
+  "keyword:automation"
+  "keyword:proof-synthesis"
+  "category:Miscellaneous/Coq Extensions"
+  "logpath:Tactician"
+]

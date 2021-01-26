@@ -1,0 +1,12 @@
+(library
+ (name tactician_plugin_hplugin)
+ (public_name coq-hplugin.plugin)
+ (flags :standard -rectypes -w -27 -warn-error -A)
+ (modules (
+   "hplugin"
+ ))
+ (libraries
+   coq-tactician.record-plugin
+   coq-hammer-tactics.tactics
+ )
+)

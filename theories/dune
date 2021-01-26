@@ -1,0 +1,8 @@
+(coq.theory
+ (name Tactician)
+ (package coq-hplugin)
+ (flags -q -noinit)
+ (libraries
+   coq-hplugin.plugin)
+)
+(include_subdirs qualified)
