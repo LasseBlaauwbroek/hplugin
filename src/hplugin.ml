@@ -35,7 +35,7 @@ let tclSearchDiagonalDFS max_reached predict depth =
                 let ndepth = depth - i in
                 if ndepth <= 0 then tclZERO DepthEnd else
                   if confidence = Float.neg_infinity then tclZERO PredictionsEnd else (* TODO: Hack *)
-                    (ssimpl (default_s_opts ()) >>= fun () -> tactic >>= fun _ -> aux (ndepth - 1)))
+                    (qsimpl (default_s_opts ()) >>= fun () -> tactic >>= fun _ -> aux (ndepth - 1)))
              predictions) >>= aux in
   aux depth >>= fun _ -> tclUNIT ()
 
