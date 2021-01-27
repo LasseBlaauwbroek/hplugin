@@ -39,7 +39,7 @@ open Sauto
  *              predictions) >>= aux in
  *   aux depth >>= fun _ -> tclUNIT () *)
 
-let rec tclSearchDiagonalIterative d max_reached predict : unit tactic = sauto (default_s_opts ())
+let rec tclSearchDiagonalIterative d max_reached predict : unit tactic = sauto (hauto_s_opts ())
   (* (\* (tclLIFT (NonLogical.print_info (Pp.str ("Iterative depth: " ^ string_of_int d)))) <*> *\)
    * if max_reached () then Tacticals.New.tclZEROMSG (Pp.str "No more executions") else
    * tclOR
