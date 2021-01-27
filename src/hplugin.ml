@@ -25,7 +25,7 @@ let tclFoldPredictions max_reached tacs =
 let tclSearchDiagonalDFS max_reached predict depth =
   let rec aux (depth : int) : int tactic =
     if max_reached () then tclZERO PredictionsEnd else
-      sintuition (default_s_opts ()) >>= fun () -> Goal.goals >>= function
+      strivial (default_s_opts ()) >>= fun () -> Goal.goals >>= function
       | [] -> tclUNIT depth
       | _ ->
         predict >>= fun predictions ->
