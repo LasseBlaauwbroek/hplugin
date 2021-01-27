@@ -4,6 +4,7 @@
  (flags :standard -rectypes -w -27 -warn-error -A)
  (modules (
    "hplugin"
+   hlearner
  ))
  (libraries
    coq-tactician.record-plugin
