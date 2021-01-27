@@ -49,5 +49,5 @@ let rec tclSearchDiagonalIterative d max_reached predict : unit tactic = sauto (
    *       Tacticals.New.tclZEROMSG (Pp.str "Tactician failed: there are no more tactics left")
    *     | _ -> tclSearchDiagonalIterative (d + 1) max_reached predict) *)
 
-let () = register_search_strategy "diagonal iterative search" (tclSearchDiagonalIterative 10)
+(* let () = register_search_strategy "diagonal iterative search" (tclSearchDiagonalIterative 10) *)
 let _ = print_endline "hi"
