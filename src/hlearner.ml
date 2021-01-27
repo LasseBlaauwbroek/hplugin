@@ -43,5 +43,5 @@ module HLearner : TacticianOnlineLearnerType = functor (TS : TacticianStructures
   let evaluate db _ _ = 0., db
 end
 
-let () = register_online_learner "Hplugin learner" (module HLearner)
+(* let () = register_online_learner "Hplugin learner" (module HLearner) *)
 let _ = print_endline "boe"

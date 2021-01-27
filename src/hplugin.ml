@@ -25,7 +25,7 @@ let tclFoldPredictions max_reached tacs =
 let tclSearchDiagonalDFS max_reached predict depth =
   let rec aux (depth : int) : int tactic =
     if max_reached () then tclZERO PredictionsEnd else
-      Goal.goals >>= function
+      ssimpl (default_s_opts ()) >>= fun () -> Goal.goals >>= function
       | [] -> tclUNIT depth
       | _ ->
         predict >>= fun predictions ->
@@ -35,7 +35,7 @@ let tclSearchDiagonalDFS max_reached predict depth =
                 let ndepth = depth - i in
                 if ndepth <= 0 then tclZERO DepthEnd else
                   if confidence = Float.neg_infinity then tclZERO PredictionsEnd else (* TODO: Hack *)
-                    ((* sintuition (default_s_opts ()) >>= fun () -> *) tactic >>= fun _ -> aux (ndepth - 1)))
+                    (tactic >>= fun _ -> aux (ndepth - 1)))
              predictions) >>= aux in
   aux depth >>= fun _ -> tclUNIT ()
 
@@ -49,5 +49,5 @@ let rec tclSearchDiagonalIterative d max_reached predict : unit tactic =
         Tacticals.New.tclZEROMSG (Pp.str "Tactician failed: there are no more tactics left")
       | _ -> tclSearchDiagonalIterative (d + 1) max_reached predict)
 
-(* let () = register_search_strategy "diagonal iterative search" (tclSearchDiagonalIterative 10) *)
+let () = register_search_strategy "diagonal iterative search" (tclSearchDiagonalIterative 10)
 let _ = print_endline "hi"
