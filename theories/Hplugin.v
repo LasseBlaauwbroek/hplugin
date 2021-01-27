@@ -1,3 +1,3 @@
-From Tactician Require Import Ltac1.Record.
+From Tactician Require Export Ltac1.
 From Hammer Require Import Tactics.Tactics.
 Declare ML Module "tactician_plugin_hplugin".

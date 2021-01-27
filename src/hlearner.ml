@@ -34,7 +34,7 @@ module HLearner : TacticianOnlineLearnerType = functor (TS : TacticianStructures
   type model = LSHF.model
 
   let extra_tactic = {confidence = 1.; focus = 0; tactic = tactic_make
-                                                    (TacTimeout ((Locus.ArgArg 1), (get_tacexpr "strivial" []))) }
+                                                    (TacTimeout ((Locus.ArgArg 1), (get_tacexpr "Hammer.Tactics.Tactics.strivial" []))) }
   let empty = LSHF.empty
   let learn = LSHF.learn
   let predict m s =
